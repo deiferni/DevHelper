@@ -58,36 +58,11 @@ namespace DevHelper
                         HighLogic.CurrentGame.Start();
                     }
                 }
-                else
-                {
-                    //pop up load game dialog.
-                    var mc = menu.GetComponent<MainMenu>();
-                    mc.continueBtn.onPressed.Invoke();
-                }
-            }
-        }
-    
-        private bool isTooLateToLoad = false;
-
-        public void OnLevelWasLoaded(int level)
-        {
-            Debug.Log("[DevHelper]: OnLevelWasLoaded:" + level);
-
-            if (PSystemManager.Instance != null && ScaledSpace.Instance == null)
-            {
-                isTooLateToLoad = true;
             }
         }
     }
 }
 
-public class DevHelperPartlessLoader : KSP.Testing.UnitTest
-{
-    public DevHelperPartlessLoader()
-    {
-        DevHelperPluginWrapper.Initialize();
-    }
-}
 
 public static class DevHelperPluginWrapper
 {
